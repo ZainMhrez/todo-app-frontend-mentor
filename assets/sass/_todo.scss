@@ -1,0 +1,200 @@
+/* import mixins file */
+@use "mixins" as *;
+@use "components";
+@use "variables" as *;
+
+
+/* main container */
+.container {
+  max-width: 100vw;
+  min-height: 100vh;
+  @include flexMixin(space-evenly, center);
+  flex-direction: column;
+}
+
+.todo {
+  width: 34em;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 2em;
+
+  /* h1 and theme switcher */
+  .top {
+    @include flexMixin(space-between, center);
+    
+
+    h1 {
+      color: hsl(0, 0%, 98%);
+      letter-spacing: 0.5em;
+      font-weight: 700;
+    }
+
+    .theme-switcher {
+      width: 2rem;
+      height: 2rem;
+      background: url("./../images/icon-moon.svg") no-repeat;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+  }
+
+  /* Input */
+  .input {
+    padding: 1.2em 1.5em;
+    background-color: var(--main-bg);
+    border-radius: 4px;
+    @include flexMixin(space-between, center);
+    box-shadow: 0px 2px 50px 0px #9394a55e;
+
+    label {
+      width: 90%;
+      cursor: pointer;
+      font-weight: 400;
+
+      &::before {
+        top: -2px;
+      }
+
+      .input-field {
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: var(--font);
+        font-weight: 400;
+        font-family: 'Josefin Sans', sans-serif;
+        color: var(--main-font-clr);
+        background-color: var(--main-bg);
+  
+        &::placeholder {
+          font-family: 'Josefin Sans', sans-serif;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  /* List body */
+  .list-body {
+    width: 100%;
+    min-height: fit-content;
+    background-color: var(--main-bg);
+    box-shadow: 0px 2px 50px 0px #9394a55e;
+    border-radius: 4px;
+
+    .list-items {
+      
+      .item {
+        @include flexMixin(space-between, baseline);
+        padding: 1.2em 1.5em;
+        border-bottom: 1px solid var(--border-clr);
+        cursor: pointer;
+        font-size: var(--font);
+
+        .item-label {
+          width: 79%;
+          font-weight: 400;
+          color: var(--main-font-clr);
+          cursor: pointer;
+        }
+        /* create the style for the  checked item */
+        input[type="checkbox"]:checked +  .item-label {
+          text-decoration: line-through;
+          color: var(--checked-font-clr);
+        }
+
+        .delete-item {
+          opacity: 0;
+          align-self: center;
+          transition: 0.5s;
+        }
+        &:hover {
+          .delete-item {
+            opacity: 1;
+          }
+        }
+
+        &.hidden {
+          display: none;
+        }
+
+      }
+      
+    }
+
+    .list-info {
+      position: relative;
+      @include flexMixin(space-between, center);
+      padding: 1.4em;
+      font-size: 0.8rem;
+      color: var(--secondary-font-clr);
+
+      .clear-completed {
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &:hover {
+          color: var(--hover-clr);
+        }
+      }
+    }
+    
+  }
+}
+.show-options {
+  width: 37%;
+  @include flexMixin(space-between, center);
+  font-size: 0.8rem;
+  color: var(--secondary-font-clr);
+  
+  li {
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+      color: var(--hover-clr);
+    }
+
+    &.checked {
+      color: var(--bright-blue);
+    }
+  }
+}
+
+#out-list {
+  display: none;
+  width: 100%;
+  background: var(--main-bg);
+  padding: 1em;
+  font-size: 1rem;
+  justify-content: center;
+  gap: 1.5em;
+  box-shadow: 0px 2px 50px 0px #9394a55e;
+}
+
+.hint {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 0.8rem;
+  color: var(--secondary-font-clr);
+  font-weight: 400;
+}
+
+.attribution {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--main-font-clr);
+
+  a {
+    color: var(--bright-blue);
+    text-decoration: none;
+    transition: 0.5s;
+
+    &:hover {
+      color: rgba(58, 123, 253, 0.836);
+    }
+  }
+}

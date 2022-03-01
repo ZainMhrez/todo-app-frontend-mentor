@@ -1,0 +1,32 @@
+.dark-theme {
+  --main-bg: hsl(235, 24%, 19%);
+  --main-font-clr: hsl(234, 39%, 85%);
+  --secondary-font-clr: hsl(234, 11%, 52%);
+  --hover-clr: hsl(236, 33%, 92%);
+  --checked-font-clr: hsl(233, 14%, 35%);
+  --border-clr: hsl(237, 14%, 26%);
+  --checkbox-border-clr: hsl(237, 14%, 26%);
+  --checkbox-empty: hsl(235, 24%, 19%);
+
+  background: url("./../images/bg-desktop-dark.jpg") no-repeat top/contain,
+    hsl(235, 21%, 11%);
+
+
+  .todo {
+    .top .theme-switcher {
+      background: url("./../images/icon-sun.svg") no-repeat;
+    }
+
+    .input {
+      box-shadow: none;
+    }
+
+    .list-body {
+      box-shadow: 1px 12px 61px 0px hsl(235deg 21% 11%);
+    }
+  }
+  
+  #out-list {
+    box-shadow: 1px 12px 61px 0px hsl(235deg 21% 11%);
+  }
+}

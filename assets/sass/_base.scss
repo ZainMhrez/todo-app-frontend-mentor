@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: grid;
+  place-content: center;
+  background: url("./../images/bg-desktop-light.jpg") no-repeat top/contain,
+    hsl(0, 0%, 98%);
+}
+
+li {
+  list-style-type: none;
+}

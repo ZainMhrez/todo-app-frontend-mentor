@@ -1,0 +1,61 @@
+@use "variables" as *;
+
+input[type="checkbox"] {
+  opacity: 0;
+}
+
+label {
+  position: relative;
+  line-height: 1.4;
+  top: 2px;
+  transition: 0.5s;
+
+  /* create the outer box for the custom checkbox */
+  &::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    left: -46px;
+    top: -1px;
+    border-radius: 50%;
+    border: 2px solid var(--checkbox-border-clr);
+  }
+  /* add linear gradient border */
+  &:hover::before {
+    border: double 1.5px transparent;
+    border-radius: 50%;
+    background-image: linear-gradient(var(--checkbox-empty) , var(--checkbox-empty) ), 
+                      linear-gradient(120deg, hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+
+  /* create the place for checkmark */
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -40px;
+    top: -1.5px;
+  }
+}
+
+input[type="checkbox"]:checked + {
+  /* make the checkmark visible in the checked state */
+  label::after {
+    content: url("./../images/icon-check.svg");
+  }
+  /* fill the checkbox background */
+  label::before {
+    background: linear-gradient(120deg, hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+    border: none;
+  }
+}
+/* Adding focus styles on the outer-box of the fake checkbox */
+input[type="checkbox"]:focus:not(:checked) + label::before {
+  outline: rgba(59, 153, 252, 0.5) auto 5px;
+}

@@ -1,0 +1,48 @@
+/* Light Theme */
+@media (max-width: 768px) {
+  body {
+    background: url("./../images/bg-mobile-light.jpg") no-repeat top/contain,
+    hsl(0, 0%, 98%);
+  }
+  .todo {
+    width: 92vw;
+
+    .list-body .list-items .item .delete-item {
+      opacity: 1;
+    }
+  }
+  
+  #in-list {
+    display: none;
+  }
+  #out-list {
+    display: flex;
+  }
+}
+
+@media (max-width: 475px) {
+  .todo {
+    .list-body .list-items .item {
+    font-size: 0.9rem;
+    }
+  }
+
+  label::before {
+    width: 20px;
+    height: 20px;
+    left: -32px;
+    top: -3px;
+  }
+  label::after {
+    left: -27px;
+    top: -2px;
+  }
+}
+
+/* Dark Theme */
+@media (max-width: 768px) {
+  body.dark-theme {
+    background: url("./../images/bg-mobile-dark.jpg") no-repeat top/contain,
+    hsl(235, 21%, 11%);
+  }
+}

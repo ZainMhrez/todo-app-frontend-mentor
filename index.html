@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta name="description" content="TO-Do list with dark and light mode. Drag and drop items to reorder the list">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <title>Frontend Mentor | Todo app</title>
+
+  </head>
+  <body>
+    <main class="container">
+      <div class="todo">
+
+        <div class="top">
+          <h1>TODO</h1>
+          <span class="theme-switcher"></span>
+        </div>
+    
+        <div class="input">
+          <input type="checkbox" name="input-checkbox" id="input-checkbox">
+          <label for="input-checkbox">
+            <input class="input-field" type="text" placeholder="Create a new todo...">
+          </label>
+        </div>
+    
+        <div class="list-body">
+          <ul class="list-items">
+            
+          </ul>
+          <div class="list-info">
+            <span class="items-left"><span></span> items left</span>
+            <ul class="show-options" id="in-list">
+              <li data-option="all" class="checked">All</li>
+              <li data-option="active">Active</li>
+              <li data-option="completed">Completed</li>
+            </ul>
+            <span class="clear-completed">Clear Completed</span>
+          </div>
+        </div>
+
+        <ul class="show-options" id="out-list">
+          <li data-option="all" class="checked">All</li>
+          <li data-option="active">Active</li>
+          <li data-option="completed">Completed</li>
+        </ul>
+      </div>
+
+      
+
+      <div class="hint">Drag and drop to reorder list</div>
+      
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://www.linkedin.com/in/zain-mhrez/" target="_blank">Zain Mhrez</a>.
+      </div>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/Sortable.min.js"></script>
+    <script>
+      new Sortable(itemsList, {
+        animation: 300
+      });
+    </script>
+  </body>
+</html>
