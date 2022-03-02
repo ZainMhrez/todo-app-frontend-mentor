@@ -26,8 +26,6 @@ const options = document.querySelectorAll(".show-options li");
 const deleteBtn = document.querySelector(".delete-item");
 const clearCompletedBtn = document.querySelector(".list-info .clear-completed");
 const itemsLeft = document.querySelector(".list-info .items-left span");
-// const dragListItems = document.querySelectorAll(".todo .list-body .list-items .item");
-// const draggables = document.querySelectorAll(".todo .list-body .list-items .item div");
 // create empty array to store tasks
 let taskArray = [];
 
@@ -41,7 +39,7 @@ getTasksFromLocalStg();
 
 input.addEventListener("keyup", function onEvent(e) {
   if(e.keyCode === 13) {
-    if(input.value != "") {
+    if((input.value).match(/\w+/g)) {
       // add task to the array
       addTaskToArray(input.value);
       // clear the input field
